@@ -1,6 +1,7 @@
 # klikkailupeli
 Play the game here (in Finnish): https://areee.github.io/klikkailupeli/
-Made following the tutorial in: https://medium.com/@ssaurel/creating-a-click-speed-test-game-in-html5-2296751d0a97
+
+Made by following the tutorial in: https://medium.com/@ssaurel/creating-a-click-speed-test-game-in-html5-2296751d0a97
 
 ## The biggest changes for the original tutorial
 - changed the color theme from red to green
