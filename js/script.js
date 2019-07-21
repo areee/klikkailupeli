@@ -11,9 +11,9 @@ var startBtn = document.getElementById("start");
 var clickArea = document.getElementById("clickarea");
 var yourBestScoreTxt = document.getElementById("your_best_score");
 
-if(!localStorage.getItem('bestScore')){
+if (!localStorage.getItem('bestScore')) {
     populateStorage();
-}else{
+} else {
     setBestScore();
 }
 
@@ -52,7 +52,7 @@ function endGame() {
     if (bestScore < score) {
         bestScore = score;
         yourBestScoreTxt.textContent = score;
-        setBestScore();
+        populateStorage();
     }
     show(startBtn);
     window.navigator.vibrate(400);
@@ -69,7 +69,6 @@ function replaceDotWithComma(number) {
 
 function populateStorage() {
     localStorage.setItem('bestScore', bestScore);
-
     setBestScore();
 }
 
