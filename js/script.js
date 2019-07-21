@@ -2,12 +2,20 @@ var score;
 var duration = 10;
 var startTime;
 var ended = true;
+var bestScore = 0;
 
 var timerTxt = document.getElementById("timer");
 var scoreTxt = document.getElementById("score");
 var clicksTxt = document.getElementById("clicks");
 var startBtn = document.getElementById("start");
 var clickArea = document.getElementById("clickarea");
+var yourBestScoreTxt = document.getElementById("your_best_score");
+
+if(!localStorage.getItem('bestScore')){
+    populateStorage();
+}else{
+    setBestScore();
+}
 
 var show = function (elem) {
     elem.style.display = 'inline';
@@ -41,6 +49,10 @@ function endGame() {
     var clicksBySec = (score / duration).toFixed(2);
     timerTxt.textContent = replaceDotWithComma(duration.toFixed(3));
     clicksTxt.textContent = replaceDotWithComma(clicksBySec);
+    if (bestScore < score) {
+        bestScore = score;
+        yourBestScoreTxt.textContent = score;
+    }
     show(startBtn);
     window.navigator.vibrate(400);
     setTimeout(function () {
@@ -52,6 +64,17 @@ function endGame() {
 function replaceDotWithComma(number) {
     var string = '' + number;
     return string.replace('.', ',');
+}
+
+function populateStorage() {
+    localStorage.setItem('bestScore', bestScore);
+
+    setBestScore();
+}
+
+function setBestScore() {
+    var currentBestScore = localStorage.getItem('bestScore');
+    yourBestScoreTxt.textContent = currentBestScore;
 }
 
 startBtn.addEventListener("click", function () {
