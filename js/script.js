@@ -51,8 +51,8 @@ function endGame() {
     clicksTxt.textContent = replaceDotWithComma(clicksBySec);
     if (bestScore < score) {
         bestScore = score;
-        yourBestScoreTxt.textContent = score;
         populateStorage();
+        yourBestScoreTxt.textContent = bestScore;
     }
     show(startBtn);
     window.navigator.vibrate(400);
