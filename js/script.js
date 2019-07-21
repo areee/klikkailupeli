@@ -52,6 +52,7 @@ function endGame() {
     if (bestScore < score) {
         bestScore = score;
         yourBestScoreTxt.textContent = score;
+        setBestScore();
     }
     show(startBtn);
     window.navigator.vibrate(400);
