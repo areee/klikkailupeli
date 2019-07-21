@@ -42,7 +42,7 @@ function endGame() {
     timerTxt.textContent = replaceDotWithComma(duration.toFixed(3));
     clicksTxt.textContent = replaceDotWithComma(clicksBySec);
     show(startBtn);
-    window.navigator.vibrate(200);
+    window.navigator.vibrate(400);
     setTimeout(function () {
         alert('Onnistuit klikkaamaan ' + score + ' kertaa ' + duration + ' sekunnissa. Tämä tekee ' +
             replaceDotWithComma(clicksBySec) + ' klikkausta sekunnissa. Yritä uudelleen!');
