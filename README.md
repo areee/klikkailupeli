@@ -11,3 +11,4 @@ Made by following the tutorial in: https://medium.com/@ssaurel/creating-a-click-
 - added a Google Font "Orbitron" in the content area
 - replaced dot with comma in the clicksBySec and duration variables
 - added vibration when the game ends
+- added "your best score" feature that saves score into ``localStorage`` ("Web Storage API")
