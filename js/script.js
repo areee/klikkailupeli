@@ -27,8 +27,8 @@ function startGame() {
         var total = (new Date().getTime() - startTime) / 1000;
 
         if (total < duration) {
-            timerTxt.textContent = total.toFixed(3);
-            clicksTxt.textContent = (score / total).toFixed(2);
+            timerTxt.textContent = replaceDotWithComma(total.toFixed(3));
+            clicksTxt.textContent = replaceDotWithComma((score / total).toFixed(2));
         } else {
             ended = true;
             clearInterval(timerId);
@@ -39,14 +39,19 @@ function startGame() {
 
 function endGame() {
     var clicksBySec = (score / duration).toFixed(2);
-    timerTxt.textContent = duration.toFixed(3);
-    clicksTxt.textContent = clicksBySec;
+    timerTxt.textContent = replaceDotWithComma(duration.toFixed(3));
+    clicksTxt.textContent = replaceDotWithComma(clicksBySec);
     show(startBtn);
 
     setTimeout(function () {
         alert('Onnistuit klikkaamaan ' + score + ' kertaa ' + duration + ' sekunnissa. Tämä tekee ' +
-            clicksBySec + ' klikkausta sekunnissa. Yritä uudelleen!');
+            replaceDotWithComma(clicksBySec) + ' klikkausta sekunnissa. Yritä uudelleen!');
     }, 10);
+}
+
+function replaceDotWithComma(number) {
+    var string = '' + number;
+    return string.replace('.', ',');
 }
 
 startBtn.addEventListener("click", function () {
